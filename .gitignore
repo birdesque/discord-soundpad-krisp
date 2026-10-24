@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+*.exe
+
+# Files the tool creates next to itself
+config.json
+soundpad-krisp.log
+soundpad-krisp.state.json

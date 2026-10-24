@@ -1,0 +1,43 @@
+name: Bug report / Сообщение об ошибке
+description: Something doesn't work / Что-то не работает
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / Что случилось?
+      description: What did you expect, and what happened instead? / Что ожидал и что произошло на самом деле?
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: soundpad-krisp.log
+      description: Contents of the log file next to the exe. / Содержимое лога рядом с exe.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SoundpadKrisp version / Версия SoundpadKrisp
+      description: First line of the log, e.g. v1.0.0 / Первая строка лога, например v1.0.0
+    validations:
+      required: true
+  - type: input
+    id: discord
+    attributes:
+      label: Discord version / Версия Discord
+      description: The app-X.Y.Z folder name from the log, or Settings → About / Имя папки app-X.Y.Z из лога или Настройки → О программе
+  - type: dropdown
+    id: noise
+    attributes:
+      label: Noise suppression mode / Режим шумодава
+      options:
+        - Krisp
+        - Standard / Стандартный
+        - None / Нет
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version / Версия Windows

@@ -1,0 +1,26 @@
+{
+  "name": "discord-soundpad-krisp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turns off Discord's noise suppression (Krisp) while Soundpad is playing, so your sounds don't get filtered out.",
+  "license": "MIT",
+  "author": "birdesque",
+  "repository": "github:birdesque/discord-soundpad-krisp",
+  "homepage": "https://github.com/birdesque/discord-soundpad-krisp#readme",
+  "bugs": "https://github.com/birdesque/discord-soundpad-krisp/issues",
+  "main": "src/soundpad-krisp.js",
+  "scripts": {
+    "start": "node src/soundpad-krisp.js",
+    "check": "node --check src/soundpad-krisp.js && node --check scripts/build.js",
+    "build": "node scripts/build.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "os": [
+    "win32"
+  ],
+  "devDependencies": {
+    "postject": "1.0.0-alpha.6"
+  }
+}
