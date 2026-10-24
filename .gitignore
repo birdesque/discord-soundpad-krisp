@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+*.exe
+
+# Файлы, которые программа создаёт рядом с собой
+config.json
+soundpad-krisp.log
+soundpad-krisp.state.json
