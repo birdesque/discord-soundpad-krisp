@@ -31,13 +31,13 @@ Soundpad подмешивает звуки прямо в поток микроф
 ## Как это работает
 
 ```
-Soundpad ──(named pipe: GetPlayStatus)──► SoundpadKrisp ──(DevTools pipe)──► Discord
+Soundpad ──(named pipe: GetPlayStatus)──► discord-soundpad-krisp ──(DevTools pipe)──► Discord
 ```
 
 - **Soundpad** опрашивается раз в 150 мс через его официальный [Remote Control](https://www.leppsoft.com/soundpad/rc) — именованный канал `\\.\pipe\sp_remote_control`.
-- **Discord** запускается с ключом Chromium `--remote-debugging-pipe`. Канал DevTools — это пара наследуемых дескрипторов, которые есть только у SoundpadKrisp. Сетевой порт не открывается, и другие программы через этот канал подключиться не могут.
+- **Discord** запускается с ключом Chromium `--remote-debugging-pipe`. Канал DevTools — это пара наследуемых дескрипторов, которые есть только у discord-soundpad-krisp. Сетевой порт не открывается, и другие программы через этот канал подключиться не могут.
 - Через этот канал утилита вызывает те же внутренние функции, что и переключатель шумодава в самом Discord: `setNoiseCancellation` (Krisp) и `setNoiseSuppression` («Стандартный»). Функции ищутся по названию действия `AUDIO_SET_NOISE_CANCELLATION`, а не по минифицированным номерам модулей, поэтому большинство обновлений Discord утилиту не ломают.
-- Если Discord закрыли посреди звука, прежний режим сохраняется в `soundpad-krisp.state.json` и возвращается при следующем запуске.
+- Если Discord закрыли посреди звука, прежний режим сохраняется в `discord-soundpad-krisp.state.json` и возвращается при следующем запуске.
 
 Файлы Discord не изменяются.
 
@@ -60,7 +60,7 @@ Soundpad ──(named pipe: GetPlayStatus)──► SoundpadKrisp ──(DevTool
 
 ## Если что-то не так
 
-Лог пишется в `soundpad-krisp.log` рядом с exe. Сообщения в нём на английском:
+Лог пишется в `discord-soundpad-krisp.log` рядом с exe. Сообщения в нём на английском:
 
 | Сообщение | Что значит |
 |---|---|
@@ -80,7 +80,7 @@ npm ci
 npm run build
 ```
 
-Exe появится в `dist/discord-soundpad-krisp.exe`. Сборщик упаковывает `src/soundpad-krisp.js` в [single executable application Node.js](https://nodejs.org/api/single-executable-applications.html) с помощью `postject` и переключает exe в оконный режим, чтобы не появлялась консоль.
+Exe появится в `dist/discord-soundpad-krisp.exe`. Сборщик упаковывает `src/discord-soundpad-krisp.js` в [single executable application Node.js](https://nodejs.org/api/single-executable-applications.html) с помощью `postject` и переключает exe в оконный режим, чтобы не появлялась консоль.
 
 Можно запустить и без сборки: `npm start`. Лог тогда идёт ещё и в консоль.
 

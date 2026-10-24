@@ -2,11 +2,11 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.0.1] - 2026-10-24
 
 ### Changed
 
-- All log and error messages are now in English (they were in Russian).
+- The tool is now called discord-soundpad-krisp everywhere: the log is `discord-soundpad-krisp.log` and the state file is `discord-soundpad-krisp.state.json`.
 
 ## [1.0.0] - 2026-10-24
 
@@ -20,4 +20,5 @@ All notable changes to this project are documented here. The format follows [Kee
 - `config.json` with `pollMs` and `releaseDelayMs`; UTF-8 with BOM is accepted.
 - Windowless single-file `discord-soundpad-krisp.exe` built with Node.js SEA, with a SHA-256 checksum.
 
+[1.0.1]: https://github.com/birdesque/discord-soundpad-krisp/releases/tag/v1.0.1
 [1.0.0]: https://github.com/birdesque/discord-soundpad-krisp/releases/tag/v1.0.0

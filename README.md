@@ -31,13 +31,13 @@ To start it with Windows, turn off "Open Discord" in Discord's Windows settings.
 ## How it works
 
 ```
-Soundpad ──(named pipe: GetPlayStatus)──► SoundpadKrisp ──(DevTools pipe)──► Discord
+Soundpad ──(named pipe: GetPlayStatus)──► discord-soundpad-krisp ──(DevTools pipe)──► Discord
 ```
 
 - **Soundpad** is polled every 150 ms through its official [Remote Control interface](https://www.leppsoft.com/soundpad/rc), the named pipe `\\.\pipe\sp_remote_control`.
-- **Discord** is launched with Chromium's `--remote-debugging-pipe` flag. The DevTools channel is a pair of inherited handles that only SoundpadKrisp holds. No network port is opened, and no other program can connect through it.
+- **Discord** is launched with Chromium's `--remote-debugging-pipe` flag. The DevTools channel is a pair of inherited handles that only discord-soundpad-krisp holds. No network port is opened, and no other program can connect through it.
 - Through that channel, the tool calls the same internal functions Discord's own noise-suppression toggle uses: `setNoiseCancellation` for Krisp and `setNoiseSuppression` for Standard. It finds them by the action name `AUDIO_SET_NOISE_CANCELLATION`, not by minified module IDs, so it survives most Discord updates.
-- If Discord is closed in the middle of a sound, the previous mode is saved to `soundpad-krisp.state.json` and restored on the next start.
+- If Discord is closed in the middle of a sound, the previous mode is saved to `discord-soundpad-krisp.state.json` and restored on the next start.
 
 No Discord files are modified.
 
@@ -60,7 +60,7 @@ Optional. Create `config.json` next to the exe (see [`config.example.json`](conf
 
 ## Troubleshooting
 
-The log is written to `soundpad-krisp.log` next to the exe.
+The log is written to `discord-soundpad-krisp.log` next to the exe.
 
 | Log message | Meaning |
 |---|---|
@@ -80,7 +80,7 @@ npm ci
 npm run build
 ```
 
-The exe is written to `dist/discord-soundpad-krisp.exe`. The build packs `src/soundpad-krisp.js` into a [Node.js single executable application](https://nodejs.org/api/single-executable-applications.html) with `postject`, and switches the PE subsystem to GUI so no console window appears.
+The exe is written to `dist/discord-soundpad-krisp.exe`. The build packs `src/discord-soundpad-krisp.js` into a [Node.js single executable application](https://nodejs.org/api/single-executable-applications.html) with `postject`, and switches the PE subsystem to GUI so no console window appears.
 
 You can also run it without building: `npm start`. The log then goes to the console as well.
 

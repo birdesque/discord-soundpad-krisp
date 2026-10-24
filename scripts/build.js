@@ -1,4 +1,4 @@
-// Builds dist/discord-soundpad-krisp.exe from src/soundpad-krisp.js as a Node.js single executable application.
+// Builds dist/discord-soundpad-krisp.exe from src/discord-soundpad-krisp.js as a Node.js single executable application.
 //   npm run build
 'use strict';
 
@@ -11,7 +11,7 @@ const ROOT = path.join(__dirname, '..');
 const BUILD_DIR = path.join(ROOT, 'build');
 const DIST_DIR = path.join(ROOT, 'dist');
 const EXE = path.join(DIST_DIR, 'discord-soundpad-krisp.exe');
-const MAIN = path.join(BUILD_DIR, 'soundpad-krisp.js');
+const MAIN = path.join(BUILD_DIR, 'discord-soundpad-krisp.js');
 const BLOB = path.join(BUILD_DIR, 'sea-prep.blob');
 const SEA_CONFIG = path.join(BUILD_DIR, 'sea-config.json');
 const POSTJECT = path.join(ROOT, 'node_modules', 'postject', 'dist', 'cli.js');
@@ -24,7 +24,7 @@ fs.rmSync(BUILD_DIR, { recursive: true, force: true });
 fs.mkdirSync(BUILD_DIR, { recursive: true });
 fs.mkdirSync(DIST_DIR, { recursive: true });
 
-const source = fs.readFileSync(path.join(ROOT, 'src', 'soundpad-krisp.js'), 'utf8');
+const source = fs.readFileSync(path.join(ROOT, 'src', 'discord-soundpad-krisp.js'), 'utf8');
 fs.writeFileSync(MAIN, source.replace("'__VERSION__'", JSON.stringify(`v${version}`)));
 fs.writeFileSync(SEA_CONFIG, JSON.stringify({ main: MAIN, output: BLOB, disableExperimentalSEAWarning: true }));
 execFileSync(process.execPath, ['--experimental-sea-config', SEA_CONFIG], { stdio: 'inherit' });

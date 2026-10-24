@@ -12,7 +12,7 @@ body:
   - type: textarea
     id: log
     attributes:
-      label: soundpad-krisp.log
+      label: discord-soundpad-krisp.log
       description: Contents of the log file next to the exe. / Содержимое лога рядом с exe.
       render: text
     validations:
@@ -20,7 +20,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: SoundpadKrisp version / Версия SoundpadKrisp
+      label: discord-soundpad-krisp version / Версия discord-soundpad-krisp
       description: First line of the log, e.g. v1.0.0 / Первая строка лога, например v1.0.0
     validations:
       required: true

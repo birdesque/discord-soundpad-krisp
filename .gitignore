@@ -5,5 +5,5 @@ dist/
 
 # Files the tool creates next to itself
 config.json
-soundpad-krisp.log
-soundpad-krisp.state.json
+discord-soundpad-krisp.log
+discord-soundpad-krisp.state.json

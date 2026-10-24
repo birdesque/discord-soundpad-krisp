@@ -19,9 +19,9 @@ try {
 // The build script replaces this with the version from package.json.
 const VERSION = '__VERSION__';
 const BASE_DIR = isSea ? path.dirname(process.execPath) : process.cwd();
-const STATE_PATH = path.join(BASE_DIR, 'soundpad-krisp.state.json');
-const LOG_PATH = path.join(BASE_DIR, 'soundpad-krisp.log');
-const LOCK_PIPE = '\\\\.\\pipe\\soundpad-krisp-lock';
+const STATE_PATH = path.join(BASE_DIR, 'discord-soundpad-krisp.state.json');
+const LOG_PATH = path.join(BASE_DIR, 'discord-soundpad-krisp.log');
+const LOCK_PIPE = '\\\\.\\pipe\\discord-soundpad-krisp-lock';
 const DISCORD_URL = /^https:\/\/([a-z]+\.)?discord\.com\//;
 
 function loadJson(file) {
@@ -296,7 +296,7 @@ async function main() {
     process.exit(0);
   }
   logStream = fs.createWriteStream(LOG_PATH, { flags: 'w' });
-  log(`SoundpadKrisp ${VERSION}`);
+  log(`discord-soundpad-krisp ${VERSION}`);
 
   const soundpad = new Soundpad();
   const discord = new Discord();
